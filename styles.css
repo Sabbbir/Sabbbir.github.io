@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@500;700&display=swap');
 
@@ -25,25 +27,9 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(-45deg, #1f1c2c, #928dab, #00c6ff, #ff7e5f);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: #fff;
-    padding: 60px 0;
     text-align: center;
-    position: relative;
-}
-
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    padding: 60px 0;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 header h1 {
@@ -95,7 +81,34 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Project Cards */
+/* Education Section */
+.education-item {
+    margin-bottom: 30px;
+}
+
+.education-item h3 {
+    font-size: 1.8em;
+    color: #00c6ff;
+    margin-bottom: 5px;
+}
+
+.education-item .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+/* Skills Section */
+#skills p {
+    margin-bottom: 15px;
+}
+
+/* Languages Section */
+#languages p {
+    margin-bottom: 10px;
+}
+
+/* Projects Section */
 .project {
     display: flex;
     align-items: center;
@@ -122,14 +135,19 @@ section h2::after {
 }
 
 .project-info h3 {
-    font-family: 'Orbitron', sans-serif;
     font-size: 1.8em;
-    margin-bottom: 10px;
     color: #00c6ff;
+    margin-bottom: 5px;
+}
+
+.project-info .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
 }
 
 .project-info p {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #c0c0c0;
 }
 
@@ -143,54 +161,74 @@ section h2::after {
     color: #00c6ff;
 }
 
-/* CV Sections */
-.cv-section {
+/* Experience Section */
+.experience-item {
     margin-bottom: 30px;
 }
 
-.cv-section h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+.experience-item h3 {
+    font-size: 1.8em;
     color: #00c6ff;
+    margin-bottom: 5px;
 }
 
-.cv-section ul li {
+.experience-item .date {
+    font-style: italic;
+    color: #b0b0b0;
     margin-bottom: 10px;
 }
 
-.cv-section a {
-    color: #ff7e5f;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.experience-item p {
+    margin-bottom: 10px;
+    color: #c0c0c0;
 }
 
-.cv-section a:hover {
+/* Awards Section */
+.award-item {
+    margin-bottom: 30px;
+}
+
+.award-item h3 {
+    font-size: 1.8em;
     color: #00c6ff;
+    margin-bottom: 5px;
 }
 
-/* Contact Form */
-#contact-form {
+.award-item .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+.award-item p {
+    margin-bottom: 10px;
+    color: #c0c0c0;
+}
+
+/* Contact Section */
+.contact-form {
     background: #1e1e1e;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 198, 255, 0.2);
     transition: box-shadow 0.3s ease;
+    max-width: 600px;
+    margin: auto;
 }
 
-#contact-form:hover {
+.contact-form:hover {
     box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
 }
 
-#contact-form label {
+.contact-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: #00c6ff;
 }
 
-#contact-form input,
-#contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 12px 15px;
     margin-bottom: 20px;
@@ -202,18 +240,18 @@ section h2::after {
     transition: background 0.3s ease;
 }
 
-#contact-form input::placeholder,
-#contact-form textarea::placeholder {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
     color: #b0b0b0;
 }
 
-#contact-form input:focus,
-#contact-form textarea:focus {
+.contact-form input:focus,
+.contact-form textarea:focus {
     background: #3c3c3c;
     outline: none;
 }
 
-#contact-form button {
+.contact-form button {
     padding: 15px;
     background: #00c6ff;
     border: none;
@@ -224,7 +262,7 @@ section h2::after {
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
-#contact-form button:hover {
+.contact-form button:hover {
     background: #ff7e5f;
     transform: translateY(-3px);
 }
@@ -263,19 +301,6 @@ section h2::after {
     color: #00c6ff;
 }
 
-/* Footer */
-footer {
-    background: #1f1c2c;
-    color: #c0c0c0;
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-}
-
-footer p {
-    font-size: 0.9em;
-}
-
 /* Back-to-Top Button */
 #back-to-top {
     position: fixed;
@@ -312,34 +337,31 @@ footer p {
     .project-info {
         width: 100%;
     }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    section h2 {
-        font-size: 2em;
-    }
-
-    .project-info h3 {
-        font-size: 1.5em;
-    }
-
-    #contact-form button {
-        font-size: 1em;
-    }
-
     #back-to-top {
         bottom: 20px;
         right: 20px;
         padding: 10px;
         font-size: 1em;
     }
+}
+
+/* Fade-in Animation for Sections */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 

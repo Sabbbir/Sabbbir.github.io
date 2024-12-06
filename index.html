@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabbbir Ahmed - Portfolio</title>
-    <meta name="description" content="Sabbbir Ahmed's portfolio showcasing projects in machine learning, image segmentation, and computer science research.">
-    <meta name="keywords" content="Sabbbir Ahmed, portfolio, machine learning, image segmentation, computer science">
+    <title>Sabbir Ahmed - Portfolio</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
@@ -13,86 +11,177 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXJN1h7J6hr3PzP5fwvFzxPSuRgMpbzYxW3D4KYgQHgfCA+Ivb8KY+sWxHwuZwXHl0G0zDlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <!-- CSS Stylesheet -->
+    <!-- Your existing styles.css -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Google Analytics (Optional) -->
-    <!-- Replace 'YOUR_TRACKING_ID' with your actual Google Analytics Tracking ID -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'YOUR_TRACKING_ID');
-    </script>
-    -->
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container">
-            <h1>Sabbbir Ahmed</h1>
+            <h1>Sabbir Ahmed</h1>
             <p>Computer Science Student & Machine Learning Enthusiast</p>
             <nav>
+                <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+                <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+                <a href="#languages"><i class="fas fa-language"></i> Languages</a>
                 <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
-                <a href="#cv"><i class="fas fa-file-alt"></i> CV</a>
+                <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+                <a href="#awards"><i class="fas fa-trophy"></i> Awards</a>
                 <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
             </nav>
         </div>
     </header>
 
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <hr />
+            <div class="education-item">
+                <h3>Jashore University of Science and Technology</h3>
+                <p class="date">Jan 2020 - Current</p>
+                <p>Bachelor of Science in Computer Science and Engineering</p>
+            </div>
+            <div class="education-item">
+                <h3>Govt. Sundarban Adarsha College, Khulna</h3>
+                <p class="date">GPA: 5.00/5.00</p>
+                <p>Higher Secondary Certificate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <hr />
+            <p><strong>Programming Languages:</strong> C/C++, Java, Python, Bash</p>
+            <p><strong>Frameworks and Libraries:</strong> Django, PyTorch, TensorFlow, Scikit-Learn, Pandas</p>
+            <p><strong>Databases:</strong> MySQL, Firebase</p>
+            <p><strong>Office and Document Applications:</strong> \LaTeX, Microsoft Office Suite</p>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages">
+        <div class="container">
+            <h2>Languages</h2>
+            <hr />
+            <p><strong>Bengali:</strong> Native</p>
+            <p><strong>English:</strong> Proficient (IELTS 7.0) <span class="date">Nov 2024</span></p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
+            <hr />
             <div class="project">
                 <img src="assets/images/segmentation_demo.png" alt="Image Segmentation Demo">
                 <div class="project-info">
-                    <h3>Image Segmentation Research</h3>
-                    <p>Conducted research on advanced image segmentation techniques using deep learning models.</p>
+                    <h3>Automatic License Plate Detection Using ML</h3>
+                    <p class="date">Jan 2024 - May 2024</p>
+                    <p><strong>Tools Used:</strong> Python, Django, YOLOv8 model</p>
+                    <p>Co-developed an AI-driven Bengali License Plate detection system at Visual Machine Intelligence Lab. Integrated a LIDAR with Raspberry Pi to automate registration and storage.</p>
                     <a href="https://github.com/Sabbbir/image-segmentation" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                 </div>
             </div>
             <div class="project">
                 <img src="assets/images/sentiment_analysis.png" alt="Sentiment Analysis Tool">
                 <div class="project-info">
-                    <h3>Sentiment Analysis Tool</h3>
-                    <p>Developed a sentiment analysis tool using NLP techniques to gauge user feedback.</p>
-                    <a href="https://github.com/Sabbbir/sentiment-analysis" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                    <h3>AI Chatbot using Open Source LLM</h3>
+                    <p class="date">May 2024</p>
+                    <p><strong>Tools Used:</strong> Ollama with llama3-8b, Streamlit</p>
+                    <p>Developed a bot that answers user queries using an open-source Large Language Model. The bot searches information provided in a PDF and answers questions, working as a smart sales assistant 24/7.</p>
+                    <a href="https://github.com/Sabbbir/ai-chatbot" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="assets/images/virtual_photo_booth.png" alt="Virtual Photo Booth">
+                <div class="project-info">
+                    <h3>Virtual Photo Booth</h3>
+                    <p class="date">Sep 2023</p>
+                    <p><strong>Tools Used:</strong> Python, QtPy6, PyTorch, BASNet Model</p>
+                    <p>Created a Virtual Photo Booth app using BASNet, Python, and QtPy6. This app separates the user from the background and replaces it with a new background chosen by the user. Presented this project at CSE Fest-JUST 2023.</p>
+                    <a href="https://github.com/Sabbbir/virtual-photo-booth" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="assets/images/nasa_space_apps.png" alt="NASA Space Apps Challenge">
+                <div class="project-info">
+                    <h3>NASA Space Apps Challenge 2023</h3>
+                    <p class="date">Aug 2023</p>
+                    <p><strong>Tools Used:</strong> HTML, CSS, Bootstrap, three.js, Python</p>
+                    <p>Led team Entergalactic, selected among the top teams for the 2nd round. Features include viewing Mars in 3D, learning about its attributes, and getting weather reports from rovers on Mars.</p>
+                    <a href="https://github.com/Sabbbir/nasa-space-apps" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                 </div>
             </div>
             <!-- Add more projects as needed -->
         </div>
     </section>
 
-    <section id="cv">
+    <!-- Experience Section -->
+    <section id="experience">
         <div class="container">
-            <h2>Curriculum Vitae</h2>
-            <div class="cv-section">
-                <h3>Job Applications</h3>
-                <ul>
-                    <li><a href="assets/cv/job_application_1.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Job CV 1</a></li>
-                    <li><a href="assets/cv/job_application_2.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Job CV 2</a></li>
-                </ul>
+            <h2>Experience</h2>
+            <hr />
+            <div class="experience-item">
+                <h3>ICT Olympiad Bangladesh</h3>
+                <p class="date">Apr 2022 - Current</p>
+                <p><strong>Position:</strong> University Team Leader</p>
             </div>
-            <div class="cv-section">
-                <h3>Research Positions</h3>
-                <ul>
-                    <li><a href="assets/cv/research_paper_1.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Research CV 1</a></li>
-                    <li><a href="assets/cv/research_paper_2.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Research CV 2</a></li>
-                </ul>
+            <div class="experience-item">
+                <h3>Research Assistant, VMI Lab, JUST</h3>
+                <p class="date">Nov 2023 - Current</p>
+                <p>Researched advanced image segmentation models, exploring and implementing cutting-edge image processing algorithms. Gained hands-on experience in applying state-of-the-art techniques to real-world datasets, contributing to the lab's ongoing projects.</p>
             </div>
+            <div class="experience-item">
+                <h3>Lab Assistant, Dept. of CSE, JUST</h3>
+                <p class="date">Feb 2024 - June 2024</p>
+                <p>Facilitated hands-on training for 25 students on MS Office Suite. Designed and evaluated midterm and final exams and quizzes to enhance student understanding and assess proficiency in MS Office tools.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Machine Learning Teaching Assistant, JUST</h3>
+                <p class="date">Oct 2024 - Current</p>
+                <p>Supporting lab sessions for 50+ students on core machine learning topics, including supervised and unsupervised learning. Assisting in the preparation of assignments, quizzes, and projects to reinforce student understanding. Aiming to enhance student engagement through hands-on demonstrations and personalized guidance.</p>
+            </div>
+            <!-- Add more experience items as needed -->
         </div>
     </section>
 
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="container">
+            <h2>Awards</h2>
+            <hr />
+            <div class="award-item">
+                <h3>MELBU Summer School, Leipzig, Germany</h3>
+                <p class="date">Aug 18 - Aug 29, 2022</p>
+                <p><strong>Funding:</strong> Erasmus+ Scholarship</p>
+                <p>Participated in an intensive program focusing on Leadership, Entrepreneurship, and Innovation Management. Enhanced my skills and gained valuable experience through collaborative learning.</p>
+            </div>
+            <div class="award-item">
+                <h3>a2i Pregnancy Monitoring Innovation Challenge 2022</h3>
+                <p class="date">Nov 2022</p>
+                <p><strong>Awarding Institution:</strong> ICT Division, Cabinet Division, UNDP</p>
+                <p>Selected as one of the youngest participants from a pool of 40 candidates across Bangladesh.</p>
+            </div>
+            <!-- Add more award items as needed -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
-            <form id="contact-form" action="https://formspree.io/f/mvgoydvj" method="POST">
+            <hr />
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvgoydvj" method="POST">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
                 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+                <input type="email" id="email" name="_replyto" placeholder="Your Email" required />
                 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -103,23 +192,36 @@
                 <p>Thank you for your message! I will get back to you soon.</p>
             </div>
             <div class="social-links">
-                <p>Email: <a href="mailto:sabbbir@example.com"><i class="fas fa-envelope"></i> sabbbir@example.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/sabbbir" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/sabbbir</a></p>
+                <p>Email: <a href="mailto:sabbir.ahmed.cse19.just@gmail.com"><i class="fas fa-envelope"></i> sabbbir.ahmed.cse19.just@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/sabbbir-ahmed1925/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> linkedin.com/in/sabbbir-ahmed1925/</a></p>
+                <p>GitHub: <a href="https://github.com/Sabbbir" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Sabbbir</a></p>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Sabbbir Ahmed. All rights reserved.</p>
-        </div>
-    </footer>
-
     <!-- Back-to-Top Button -->
     <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- JavaScript for Form Handling and Interactions -->
+    <!-- JavaScript for Back-to-Top Button and Form Handling -->
     <script>
+        // Back-to-Top Button Functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Form Submission Handling
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
@@ -151,34 +253,6 @@
             })
             .catch(error => {
                 alert(error.message);
-            });
-        });
-
-        // Smooth Scrolling for Navigation Links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Back-to-Top Button Functionality
-        const backToTopButton = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
             });
         });
     </script>
