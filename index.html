@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabbbir's Portfolio</title>
+    <meta name="description" content="Sabbbir's portfolio showcasing projects in machine learning, image segmentation, and computer science research.">
+    <meta name="keywords" content="Sabbbir, portfolio, machine learning, image segmentation, computer science">
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Analytics (Optional) -->
+    <!-- Replace 'YOUR_TRACKING_ID' with your actual Google Analytics Tracking ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_TRACKING_ID');
+    </script>
+    -->
 </head>
 <body>
     <header>
@@ -21,8 +34,15 @@
         <h2>Projects</h2>
         <div class="project">
             <h3>Image Segmentation Research</h3>
+            <img src="assets/images/segmentation_demo.png" alt="Image Segmentation Demo" width="100%">
             <p>Conducted research on advanced image segmentation techniques using deep learning models.</p>
-            <a href="https://github.com/Sabbbir/image-segmentation">View on GitHub</a>
+            <a href="https://github.com/Sabbbir/image-segmentation" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project">
+            <h3>Sentiment Analysis Tool</h3>
+            <img src="assets/images/sentiment_analysis.png" alt="Sentiment Analysis Tool" width="100%">
+            <p>Developed a sentiment analysis tool using NLP techniques to gauge user feedback.</p>
+            <a href="https://github.com/Sabbbir/sentiment-analysis" target="_blank">View on GitHub</a>
         </div>
         <!-- Add more projects as needed -->
     </section>
@@ -47,8 +67,20 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">yourprofile</a></p>
+        <form action="https://formspree.io/f/yourformid" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="_replyto" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+            
+            <button type="submit">Send</button>
+        </form>
+        <p>Email: <a href="mailto:sabbbir@example.com">sabbbir@example.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sabbbir" target="_blank">linkedin.com/in/sabbbir</a></p>
     </section>
 
     <footer>
