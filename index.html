@@ -115,8 +115,12 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Form Handling -->
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- JavaScript for Form Handling and Interactions -->
     <script>
+        // Form Submission Handling
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
 
@@ -147,6 +151,34 @@
             })
             .catch(error => {
                 alert(error.message);
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back-to-Top Button Functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
