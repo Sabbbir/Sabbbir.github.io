@@ -1,20 +1,27 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags for SEO -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabbir Ahmed - Portfolio</title>
+    <meta name="description" content="Sabbir Ahmed's portfolio showcasing projects in machine learning, computer vision, and natural language processing.">
+    <meta name="keywords" content="Sabbir Ahmed, Portfolio, Machine Learning, Computer Vision, NLP, Projects, CV, GitHub">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Sabbir Ahmed - Portfolio">
+    <meta property="og:description" content="Explore the projects and achievements of Sabbir Ahmed, a Computer Science Student and Machine Learning Enthusiast.">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:url" content="https://Sabbbir.github.io/sabbbir-portfolio/">
+    <meta property="og:type" content="website">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-o8C3wFxA4QK1Jbql0r7fOsaaf3XYcXK1k6r3Ll2jG1rXqg+EOb6rQ+Ng0WvgkxQ4H3K1W5yDGtuWnBMsnlADoA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXJN1h7J6hr3PzP5fwvFzxPSuRgMpbzYxW3D4KYgQHgfCA+Ivb8KY+sWxHwuZwXHl0G0zDlw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <!-- Your existing styles.css -->
+    <!-- Link to External CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,7 +32,8 @@
             <p>Computer Science Student & Machine Learning Enthusiast</p>
             <nav>
                 <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-                <a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a>
+                <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+                <a href="#languages"><i class="fas fa-language"></i> Languages</a>
                 <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
                 <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
                 <a href="#awards"><i class="fas fa-trophy"></i> Awards</a>
@@ -33,200 +41,187 @@
             </nav>
         </div>
     </header>
-    
-    <!-- Three.js Background Canvas -->
-    <canvas id="three-canvas"></canvas>
-    
+
     <!-- Education Section -->
     <section id="education">
         <div class="container">
             <h2>Education</h2>
-            <hr>
             <div class="education-item">
                 <h3>Jashore University of Science and Technology</h3>
-                <span class="date">Jan 2020 - Current</span>
-                <p><strong>Bachelor of Science in Computer Science and Engineering</strong></p>
+                <p class="date">Jan 2020 - Current</p>
+                <p>Bachelor of Science in Computer Science and Engineering</p>
             </div>
             <div class="education-item">
                 <h3>Govt. Sundarban Adarsha College, Khulna</h3>
-                <span class="date">GPA: 5.00/5.00</span>
-                <p><strong>Higher Secondary Certificate</strong></p>
+                <p class="date">GPA: 5.00/5.00</p>
+                <p>Higher Secondary Certificate</p>
             </div>
         </div>
     </section>
-    
+
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2>Skills</h2>
-            <hr>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>C/C++</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>Bash</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Frameworks and Libraries</h3>
-                    <ul>
-                        <li>Django</li>
-                        <li>PyTorch</li>
-                        <li>TensorFlow</li>
-                        <li>Scikit-Learn</li>
-                        <li>Pandas</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <ul>
-                        <li>MySQL</li>
-                        <li>Firebase</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Office and Document Applications</h3>
-                    <ul>
-                        <li>LaTeX</li>
-                        <li>Microsoft Office Suite</li>
-                    </ul>
-                </div>
-            </div>
+            <p><strong>Programming Languages:</strong> C/C++, Java, Python, Bash</p>
+            <p><strong>Frameworks and Libraries:</strong> Django, PyTorch, TensorFlow, Scikit-Learn, Pandas</p>
+            <p><strong>Databases:</strong> MySQL, Firebase</p>
+            <p><strong>Office and Document Applications:</strong> \LaTeX, Microsoft Office Suite</p>
         </div>
     </section>
-    
+
+    <!-- Languages Section -->
+    <section id="languages">
+        <div class="container">
+            <h2>Languages</h2>
+            <p><strong>Bengali:</strong> Native</p>
+            <p><strong>English:</strong> Proficient (IELTS 7.0) <span class="date">Nov 2024</span></p>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
-            <hr>
             <div class="project">
                 <img src="assets/images/segmentation_demo.png" alt="Image Segmentation Demo">
                 <div class="project-info">
                     <h3>Automatic License Plate Detection Using ML</h3>
-                    <span class="date">Jan 2024 - May 2024</span>
+                    <p class="date">Jan 2024 - May 2024</p>
                     <p><strong>Tools Used:</strong> Python, Django, YOLOv8 model</p>
-                    <ul>
-                        <li>Co-developed an AI-driven Bengali License Plate detection system at Visual Machine Intelligence Lab.</li>
-                        <li>Integrated a LIDAR with Raspberry Pi to automate registration and storage.</li>
-                    </ul>
+                    <p>Co-developed an AI-driven Bengali License Plate detection system at Visual Machine Intelligence Lab. Integrated a LIDAR with Raspberry Pi to automate registration and storage.</p>
+                    <a href="https://github.com/Sabbbir/image-segmentation" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                 </div>
             </div>
             <div class="project">
-                <img src="assets/images/sentiment_analysis.png" alt="Sentiment Analysis Tool">
+                <img src="assets/images/chatbot.png" alt="AI Chatbot">
                 <div class="project-info">
                     <h3>AI Chatbot using Open Source LLM</h3>
-                    <span class="date">May 2024</span>
+                    <p class="date">May 2024</p>
                     <p><strong>Tools Used:</strong> Ollama with llama3-8b, Streamlit</p>
                     <p>Developed a bot that answers user queries using an open-source Large Language Model. The bot searches information provided in a PDF and answers questions, working as a smart sales assistant 24/7.</p>
+                    <a href="https://github.com/Sabbbir/ai-chatbot" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="assets/images/virtual_photo_booth.png" alt="Virtual Photo Booth">
+                <div class="project-info">
+                    <h3>Virtual Photo Booth</h3>
+                    <p class="date">Sep 2023</p>
+                    <p><strong>Tools Used:</strong> Python, QtPy6, PyTorch, BASNet Model</p>
+                    <p>Created a Virtual Photo Booth app using BASNet, Python, and QtPy6. This app separates the user from the background and replaces it with a new background chosen by the user. Presented this project at CSE Fest-JUST 2023.</p>
+                    <a href="https://github.com/Sabbbir/virtual-photo-booth" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+            <div class="project">
+                <img src="assets/images/nasa_space_apps.png" alt="NASA Space Apps Challenge">
+                <div class="project-info">
+                    <h3>NASA Space Apps Challenge 2023</h3>
+                    <p class="date">Aug 2023</p>
+                    <p><strong>Tools Used:</strong> HTML, CSS, Bootstrap, three.js, Python</p>
+                    <p>Led team Entergalactic, selected among the top teams for the 2nd round. Features include viewing Mars in 3D, learning about its attributes, and getting weather reports from rovers on Mars.</p>
+                    <a href="https://github.com/Sabbbir/nasa-space-apps" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
                 </div>
             </div>
             <!-- Add more projects as needed -->
         </div>
     </section>
-    
+
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
             <h2>Experience</h2>
-            <hr>
             <div class="experience-item">
                 <h3>ICT Olympiad Bangladesh</h3>
-                <span class="date">Apr 2022 - Current</span>
+                <p class="date">Apr 2022 - Current</p>
                 <p><strong>Position:</strong> University Team Leader</p>
             </div>
             <div class="experience-item">
                 <h3>Research Assistant, VMI Lab, JUST</h3>
-                <span class="date">Nov 2023 - Current</span>
+                <p class="date">Nov 2023 - Current</p>
                 <p>Researched advanced image segmentation models, exploring and implementing cutting-edge image processing algorithms. Gained hands-on experience in applying state-of-the-art techniques to real-world datasets, contributing to the lab's ongoing projects.</p>
             </div>
             <div class="experience-item">
                 <h3>Lab Assistant, Dept. of CSE, JUST</h3>
-                <span class="date">Feb 2024 - June 2024</span>
+                <p class="date">Feb 2024 - June 2024</p>
                 <p>Facilitated hands-on training for 25 students on MS Office Suite. Designed and evaluated midterm and final exams and quizzes to enhance student understanding and assess proficiency in MS Office tools.</p>
             </div>
             <div class="experience-item">
                 <h3>Machine Learning Teaching Assistant, JUST</h3>
-                <span class="date">Oct 2024 - Current</span>
+                <p class="date">Oct 2024 - Current</p>
                 <p>Supporting lab sessions for 50+ students on core machine learning topics, including supervised and unsupervised learning. Assisting in the preparation of assignments, quizzes, and projects to reinforce student understanding. Aiming to enhance student engagement through hands-on demonstrations and personalized guidance.</p>
             </div>
+            <!-- Add more experience items as needed -->
         </div>
     </section>
-    
+
     <!-- Awards Section -->
     <section id="awards">
         <div class="container">
             <h2>Awards</h2>
-            <hr>
             <div class="award-item">
                 <h3>MELBU Summer School, Leipzig, Germany</h3>
-                <span class="date">Aug 18 - Aug 29, 2022</span>
+                <p class="date">Aug 18 - Aug 29, 2022</p>
                 <p><strong>Funding:</strong> Erasmus+ Scholarship</p>
                 <p>Participated in an intensive program focusing on Leadership, Entrepreneurship, and Innovation Management. Enhanced my skills and gained valuable experience through collaborative learning.</p>
             </div>
             <div class="award-item">
                 <h3>a2i Pregnancy Monitoring Innovation Challenge 2022</h3>
-                <span class="date">Nov 2022</span>
+                <p class="date">Nov 2022</p>
                 <p><strong>Awarding Institution:</strong> ICT Division, Cabinet Division, UNDP</p>
                 <p>Selected as one of the youngest participants from a pool of 40 candidates across Bangladesh.</p>
             </div>
+            <!-- Add more award items as needed -->
         </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
-            <hr>
-            <form id="contact-form" action="https://formspree.io/f/mvgoydvj" method="POST">
-                <label for="name"><i class="fas fa-user"></i> Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvgoydvj" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
                 
-                <label for="email"><i class="fas fa-envelope"></i> Email:</label>
-                <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" placeholder="Your Email" required />
                 
-                <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                 
-                <button type="submit">Send Message</button>
+                <button type="submit" id="submit-button">Send Message</button>
             </form>
             <div id="form-message" class="hidden">
                 <p>Thank you for your message! I will get back to you soon.</p>
             </div>
             <div class="social-links">
-                <p><i class="fas fa-envelope"></i> <a href="mailto:sabbir.ahmed.cse19.just@gmail.com">sabbir.ahmed.cse19.just@gmail.com</a></p>
-                <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/sabbbir-ahmed1925/" target="_blank">LinkedIn</a></p>
-                <p><i class="fab fa-github"></i> <a href="https://github.com/Sabbbir" target="_blank">GitHub</a></p>
+                <p>Email: <a href="mailto:sabbir.ahmed.cse19.just@gmail.com"><i class="fas fa-envelope"></i> sabbbir.ahmed.cse19.just@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/sabbbir-ahmed1925/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> linkedin.com/in/sabbbir-ahmed1925/</a></p>
+                <p>GitHub: <a href="https://github.com/Sabbbir" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Sabbbir</a></p>
             </div>
         </div>
     </section>
-    
+
     <!-- Back-to-Top Button -->
     <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
-    
-    <!-- Three.js Animation Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Embedded JavaScript -->
     <script>
         // Smooth Scrolling for Navigation Links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 50, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
             });
         });
-    
+
         // Back-to-Top Button Functionality
         const backToTopButton = document.getElementById('back-to-top');
-    
+
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTopButton.style.display = 'block';
@@ -234,32 +229,50 @@
                 backToTopButton.style.display = 'none';
             }
         });
-    
+
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
-    
+
+        // Fade-in Sections on Scroll
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.8) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+
+        // Initial check for visible sections
+        window.dispatchEvent(new Event('scroll'));
+
         // Form Submission Handling
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        const submitButton = document.getElementById('submit-button');
+
+        contactForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
-    
-            const form = event.target;
-            const formMessage = document.getElementById('form-message');
-    
-            fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
+
+            // Disable the submit button to prevent multiple submissions
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            fetch(contactForm.action, {
+                method: contactForm.method,
+                body: new FormData(contactForm),
                 headers: {
                     'Accept': 'application/json'
                 }
             })
             .then(response => {
                 if (response.ok) {
-                    form.reset();
-                    form.classList.add('hidden');
+                    contactForm.reset();
+                    contactForm.classList.add('hidden');
                     formMessage.classList.remove('hidden');
                 } else {
                     return response.json().then(data => {
@@ -273,60 +286,9 @@
             })
             .catch(error => {
                 alert(error.message);
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
             });
-        });
-    
-        // Three.js Animation
-        const canvas = document.getElementById('three-canvas');
-        const scene = new THREE.Scene();
-    
-        // Camera
-        const camera = new THREE.PerspectiveCamera(
-            75, 
-            window.innerWidth / window.innerHeight, 
-            0.1, 
-            1000
-        );
-        camera.position.z = 5;
-    
-        // Renderer
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-    
-        // Geometry and Material
-        const geometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
-        const material = new THREE.MeshStandardMaterial({ color: 0x00c6ff, wireframe: true });
-        const torus = new THREE.Mesh(geometry, material);
-        scene.add(torus);
-    
-        // Lights
-        const pointLight = new THREE.PointLight(0xffffff);
-        pointLight.position.set(5, 5, 5);
-        scene.add(pointLight);
-    
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
-    
-        // Animation Loop
-        const animate = function () {
-            requestAnimationFrame(animate);
-    
-            torus.rotation.x += 0.005;
-            torus.rotation.y += 0.005;
-    
-            renderer.render(scene, camera);
-        };
-    
-        animate();
-    
-        // Handle Window Resize
-        window.addEventListener('resize', () => {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            renderer.setSize(width, height);
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
         });
     </script>
 </body>
