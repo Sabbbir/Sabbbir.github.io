@@ -67,7 +67,7 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <form action="https://formspree.io/f/mvgoydvj" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/mvgoydvj" method="POST">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
             
@@ -79,6 +79,9 @@
             
             <button type="submit">Send</button>
         </form>
+        <div id="form-message" class="hidden">
+            <p>Thank you for your message! I will get back to you soon.</p>
+        </div>
         <p>Email: <a href="mailto:sabbbir@example.com">sabbbir@example.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/sabbbir" target="_blank">linkedin.com/in/sabbbir</a></p>
     </section>
@@ -86,6 +89,9 @@
     <footer>
         <p>&copy; 2024 Sabbbir. All rights reserved.</p>
     </footer>
-</body>
-</html>
+
+    <!-- JavaScript for Form Handling -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
