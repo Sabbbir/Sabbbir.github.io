@@ -81,7 +81,34 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* Projects */
+/* Education Section */
+.education-item {
+    margin-bottom: 30px;
+}
+
+.education-item h3 {
+    font-size: 1.8em;
+    color: #00c6ff;
+    margin-bottom: 5px;
+}
+
+.education-item .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+/* Skills Section */
+#skills p {
+    margin-bottom: 15px;
+}
+
+/* Languages Section */
+#languages p {
+    margin-bottom: 10px;
+}
+
+/* Projects Section */
 .project {
     display: flex;
     align-items: center;
@@ -108,14 +135,19 @@ section h2::after {
 }
 
 .project-info h3 {
-    font-family: 'Orbitron', sans-serif;
     font-size: 1.8em;
-    margin-bottom: 10px;
     color: #00c6ff;
+    margin-bottom: 5px;
+}
+
+.project-info .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
 }
 
 .project-info p {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #c0c0c0;
 }
 
@@ -129,45 +161,51 @@ section h2::after {
     color: #00c6ff;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .project {
-        flex-direction: column;
-    }
-
-    .project img {
-        width: 100%;
-        margin: 0 0 20px 0;
-    }
-
-    .project-info {
-        width: 100%;
-    }
+/* Experience Section */
+.experience-item {
+    margin-bottom: 30px;
 }
 
-/* Back-to-Top Button */
-#back-to-top {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background-color: #00c6ff;
-    color: #121212;
-    border: none;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    display: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 1000;
+.experience-item h3 {
+    font-size: 1.8em;
+    color: #00c6ff;
+    margin-bottom: 5px;
 }
 
-#back-to-top:hover {
-    background-color: #ff7e5f;
-    transform: translateY(-3px);
+.experience-item .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
 }
 
-/* Contact Form */
+.experience-item p {
+    margin-bottom: 10px;
+    color: #c0c0c0;
+}
+
+/* Awards Section */
+.award-item {
+    margin-bottom: 30px;
+}
+
+.award-item h3 {
+    font-size: 1.8em;
+    color: #00c6ff;
+    margin-bottom: 5px;
+}
+
+.award-item .date {
+    font-style: italic;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+.award-item p {
+    margin-bottom: 10px;
+    color: #c0c0c0;
+}
+
+/* Contact Section */
 .contact-form {
     background: #1e1e1e;
     padding: 30px;
@@ -263,6 +301,58 @@ section h2::after {
     color: #00c6ff;
 }
 
+/* Back-to-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #00c6ff;
+    color: #121212;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    background-color: #ff7e5f;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project {
+        flex-direction: column;
+    }
+
+    .project img {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .project-info {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #back-to-top {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+
 /* Fade-in Animation for Sections */
 section {
     opacity: 0;
@@ -273,15 +363,5 @@ section {
 section.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Responsive Design for Back-to-Top Button */
-@media (max-width: 480px) {
-    #back-to-top {
-        bottom: 20px;
-        right: 20px;
-        padding: 10px;
-        font-size: 1em;
-    }
 }
 
