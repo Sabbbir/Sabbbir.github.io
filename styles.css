@@ -93,6 +93,11 @@ p { margin: 0 0 0.9em; color: var(--ink-soft); }
   letter-spacing: 0.02em;
 }
 
+.avatar-img {
+  object-fit: cover;
+  font-size: 0; /* hide alt text if the image fails to load before layout */
+}
+
 .sidebar-id h1 {
   font-size: 1.6rem;
   font-weight: 600;
@@ -162,7 +167,17 @@ main {
   max-width: 760px;
 }
 
-.hero { margin-bottom: 3.5rem; }
+.cv-jump {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.cv-jump a { color: var(--ink-soft); font-size: 0.88rem; font-weight: 500; }
+.cv-jump a:hover { color: var(--accent); }
+
+.hero { margin-bottom: 1rem; }
 .hero-tagline {
   font-family: var(--font-display);
   font-style: italic;

@@ -2,6 +2,12 @@
 // RENDERING — turns content.js data into HTML.
 // You shouldn't need to edit this file to update your content;
 // edit content.js instead.
+//
+// This file is shared by every page (index.html, research.html,
+// projects.html, cv.html, contact.html). Each page only has the
+// containers it needs (e.g. #research-list), so every render
+// function checks the container exists before touching it —
+// that's what makes one script.js safe to include everywhere.
 // ============================================================
 
 const ICONS = {
@@ -12,6 +18,16 @@ const ICONS = {
   huggingface: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10.5" r="1.2" fill="var(--bg)" stroke="none"/><circle cx="15" cy="10.5" r="1.2" fill="var(--bg)" stroke="none"/><path d="M8.5 14.5c1 1 2.2 1.5 3.5 1.5s2.5-.5 3.5-1.5" fill="none"/></svg>'
 };
 
+// Pages in the site and their sidebar nav label. Keys are the actual
+// filenames, so add a line here if you ever add another page.
+const PAGES = [
+  { href: "index.html", label: "About" },
+  { href: "research.html", label: "Research" },
+  { href: "projects.html", label: "Projects" },
+  { href: "cv.html", label: "CV" },
+  { href: "contact.html", label: "Contact" }
+];
+
 function el(tag, className, html) {
   const e = document.createElement(tag);
   if (className) e.className = className;
@@ -19,35 +35,62 @@ function el(tag, className, html) {
   return e;
 }
 
-function renderProfile() {
+function currentPage() {
+  const path = window.location.pathname.split('/').pop();
+  return path === '' ? 'index.html' : path;
+}
+
+// ============================================================
+// SIDEBAR — shared across every page, built entirely from content.js
+// so you never have to hand-edit it in five different HTML files.
+// ============================================================
+function renderSidebar() {
+  const root = document.getElementById('sidebar');
+  if (!root) return;
   const { profile } = CONTENT;
+
   document.title = `${profile.name} — ${profile.title}`;
-  document.getElementById('meta-description').setAttribute('content', profile.tagline);
+  const metaDesc = document.getElementById('meta-description');
+  if (metaDesc) metaDesc.setAttribute('content', profile.tagline);
 
-  document.getElementById('sidebar-name').textContent = profile.name;
-  document.getElementById('sidebar-initials').textContent = profile.name
-    .split(' ').map(w => w[0]).slice(0, 2).join('');
-  document.getElementById('sidebar-title').textContent = profile.title;
-  document.getElementById('sidebar-location').textContent = profile.location;
+  const initials = profile.name.split(' ').map(w => w[0]).slice(0, 2).join('');
+  const avatarHtml = profile.photo
+    ? `<img class="avatar avatar-img" src="${profile.photo}" alt="${profile.name}">`
+    : `<div class="avatar">${initials}</div>`;
 
-  const linksEl = document.getElementById('sidebar-links');
-  profile.links.forEach(link => {
-    const a = el('a', 'link-row', `${ICONS[link.icon] || ''}<span>${link.label}</span>`);
-    a.href = link.url;
-    if (!link.url.startsWith('mailto:')) {
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-    }
-    linksEl.appendChild(a);
-  });
+  const linksHtml = profile.links.map(link => {
+    const external = !link.url.startsWith('mailto:') ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a class="link-row" href="${link.url}"${external}>${ICONS[link.icon] || ''}<span>${link.label}</span></a>`;
+  }).join('');
 
-  document.getElementById('hero-tagline').textContent = profile.tagline;
-  const bioEl = document.getElementById('bio');
-  profile.bio.forEach(p => bioEl.appendChild(el('p', null, p)));
+  const current = currentPage();
+  const navHtml = PAGES.map(p =>
+    `<a class="nav-link${p.href === current ? ' active' : ''}" href="${p.href}">${p.label}</a>`
+  ).join('');
+
+  root.innerHTML = `
+    ${avatarHtml}
+    <div class="sidebar-id">
+      <h1>${profile.name}</h1>
+      <p class="title">${profile.title}</p>
+      <p class="location">${profile.location}</p>
+    </div>
+    <nav class="sidebar-links">${linksHtml}</nav>
+    <nav class="sidebar-nav">${navHtml}</nav>
+  `;
+}
+
+function renderHome() {
+  const wrap = document.getElementById('home-content');
+  if (!wrap) return;
+  const { profile } = CONTENT;
+  wrap.innerHTML = `<p class="hero-tagline">${profile.tagline}</p>` +
+    profile.bio.map(p => `<p>${p}</p>`).join('');
 }
 
 function renderResearch() {
   const wrap = document.getElementById('research-list');
+  if (!wrap) return;
   CONTENT.research.forEach(item => {
     const card = el('div', 'entry');
     card.innerHTML = `
@@ -66,6 +109,7 @@ function renderResearch() {
 
 function renderProjects() {
   const wrap = document.getElementById('projects-grid');
+  if (!wrap) return;
   CONTENT.projects.forEach(p => {
     const card = el('div', 'project-card');
     card.innerHTML = `
@@ -83,6 +127,7 @@ function renderProjects() {
 
 function renderTeaching() {
   const wrap = document.getElementById('teaching-list');
+  if (!wrap) return;
   CONTENT.teaching.forEach(item => {
     const card = el('div', 'entry');
     card.innerHTML = `
@@ -101,6 +146,7 @@ function renderTeaching() {
 
 function renderEducation() {
   const wrap = document.getElementById('education-list');
+  if (!wrap) return;
   CONTENT.education.forEach(item => {
     const row = el('div', 'entry');
     row.innerHTML = `
@@ -118,6 +164,7 @@ function renderEducation() {
 
 function renderAwards() {
   const wrap = document.getElementById('awards-list');
+  if (!wrap) return;
   CONTENT.awards.forEach(item => {
     const row = el('div', 'entry');
     row.innerHTML = `
@@ -136,6 +183,7 @@ function renderAwards() {
 
 function renderSkills() {
   const wrap = document.getElementById('skills-list');
+  if (!wrap) return;
   Object.entries(CONTENT.skills).forEach(([category, items]) => {
     const group = el('div', 'skill-group');
     group.innerHTML = `<h3>${category}</h3><div class="pill-row">${items.map(i => `<span class="pill">${i}</span>`).join('')}</div>`;
@@ -143,13 +191,16 @@ function renderSkills() {
   });
 
   const langWrap = document.getElementById('languages-list');
-  CONTENT.languages.forEach(l => {
-    langWrap.appendChild(el('span', 'pill', `${l.name} — ${l.level}`));
-  });
+  if (langWrap) {
+    CONTENT.languages.forEach(l => {
+      langWrap.appendChild(el('span', 'pill', `${l.name} — ${l.level}`));
+    });
+  }
 }
 
 function renderAll() {
-  renderProfile();
+  renderSidebar();
+  renderHome();
   renderResearch();
   renderProjects();
   renderTeaching();
@@ -159,15 +210,11 @@ function renderAll() {
 }
 
 // ============================================================
-// DARK MODE
+// DARK MODE — shared across all pages via localStorage
 // ============================================================
 function initTheme() {
   const toggle = document.getElementById('theme-toggle');
-  const stored = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = stored || (prefersDark ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', theme);
-
+  if (!toggle) return;
   toggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
@@ -177,41 +224,34 @@ function initTheme() {
 }
 
 // ============================================================
-// NAV — smooth scroll, active link, back to top
+// NAV — mobile menu + back to top (no scroll-spy needed now that
+// each section lives on its own page; active link is set in
+// renderSidebar() based on the current filename).
 // ============================================================
 function initNav() {
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      document.getElementById('sidebar').classList.remove('open');
-    });
-  });
-
   const menuBtn = document.getElementById('menu-toggle');
-  menuBtn.addEventListener('click', () => {
-    document.getElementById('sidebar').classList.toggle('open');
-  });
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('open');
+    });
+  }
 
   const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${entry.target.id}`));
-      }
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
     });
-  }, { rootMargin: '-40% 0px -50% 0px' });
-  sections.forEach(s => observer.observe(s));
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // Close the mobile menu after tapping a nav link (event delegation,
+  // since sidebar nav links are rendered dynamically).
+  document.addEventListener('click', e => {
+    if (e.target.closest('.nav-link')) {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar) sidebar.classList.remove('open');
+    }
+  });
 }
 
 // ============================================================
@@ -257,4 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNav();
   initContactForm();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });

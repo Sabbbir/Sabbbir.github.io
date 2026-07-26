@@ -28,6 +28,9 @@ const CONTENT = {
     title: "Machine Learning Researcher",
     location: "Dhaka, Bangladesh",
     email: "sabbir.ahmed.cse19.just@gmail.com",
+    // Path to your photo, e.g. "assets/images/profile.jpg". Leave "" to keep
+    // the initials avatar. See README "Adding your photo" for the how-to.
+    photo: "",
     tagline:
       "I work across computer vision, LLM fine-tuning, and applied deep learning — currently juggling four research collaborations spanning Bangladesh and the US, mostly on a zero-compute budget.",
     bio: [
@@ -35,13 +38,12 @@ const CONTENT = {
       "Right now I split my time across four research roles: benchmarking dropout-based regularization methods with a team at UT Dallas, leading a data-augmentation study at my home lab in Bangladesh, running a large-scale LLM fine-tuning pipeline with a lab at the University of Arkansas, and teaching machine learning to 250+ undergraduates.",
       "Before all that, my undergraduate thesis took a zero-shot medical segmentation pipeline from a Dice score of 0.28 to 0.87 by repurposing the model's own mistakes as visual prompts — a result I'm still fond of."
     ],
-    // Fill in your real Kaggle / Hugging Face URLs — placeholders for now.
     links: [
       { label: "Email", url: "mailto:sabbir.ahmed.cse19.just@gmail.com", icon: "email" },
       { label: "GitHub", url: "https://github.com/Sabbbir", icon: "github" },
       { label: "LinkedIn", url: "https://www.linkedin.com/in/sabbbir-ahmed1925/", icon: "linkedin" },
-      { label: "Kaggle", url: "#", icon: "kaggle" },
-      { label: "Hugging Face", url: "#", icon: "huggingface" }
+      { label: "Kaggle", url: "https://www.kaggle.com/sabbbirr", icon: "kaggle" },
+      { label: "Hugging Face", url: "https://huggingface.co/sabbbbir", icon: "huggingface" }
     ]
   },
 
