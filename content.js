@@ -30,7 +30,7 @@ const CONTENT = {
     email: "sabbir.ahmed.cse19.just@gmail.com",
     // Path to your photo, e.g. "assets/images/profile.jpg". Leave "" to keep
     // the initials avatar. See README "Adding your photo" for the how-to.
-    photo: "",
+    photo: "assets/dp.jpg",
     tagline:
       "I work across computer vision, LLM fine-tuning, and applied deep learning — currently juggling four research collaborations spanning Bangladesh and the US, mostly on a zero-compute budget.",
     bio: [
