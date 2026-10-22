@@ -11,46 +11,48 @@
 
   <script>
     (function () {
-      var stored = localStorage.getItem('theme');
+      var stored; try { stored = localStorage.getItem('theme'); } catch (_) {}
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
     })();
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="masthead"><div class="header-inner"><a class="wordmark" href="index.html">Sabbir Ahmed<span> / Portfolio</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="projects.html">Work</a><a href="research.html">Research</a><a href="assets/Sabbir_Ahmed_Academic_CV.pdf">CV ↗</a><a href="contact.html">Contact</a></nav></div></header>
 
   <div class="top-controls">
-    <button id="menu-toggle" class="icon-btn" aria-label="Toggle menu">
-      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
     <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">
       <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
     </button>
   </div>
 
-  <div class="layout">
-    <aside class="sidebar" id="sidebar"></aside>
+  <div class="layout portfolio-layout">
+    
 
-    <main>
-      <section id="about" class="hero">
-        <div id="home-content"></div>
-      </section>
-
+    <main id="main" tabindex="-1">
+<section class="portfolio-hero">
+<p class="eyebrow">SABBIR AHMED · MACHINE LEARNING RESEARCHER</p>
+<h1>Exploring how machines learn.<br><span>Building things that work.</span></h1>
+<p class="intro">I work across computer vision, language models, and multimodal learning. I’m interested in both the experiments behind a model and the systems that make it useful.</p>
+<div class="home-actions"><a class="primary-link" href="#selected-work">Explore my work ↓</a><a href="https://github.com/Sabbbir" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+</section>
+<section id="selected-work"><div class="section-head"><h2>Selected work</h2><a href="projects.html">All projects →</a></div><div id="featured-work"></div></section>
+<section class="research-teaser"><p class="eyebrow">ON MY RESEARCH DESK</p><h2>What helps a model generalize?</h2><p>I’m investigating image mixing strategies and large-scale language-model workflows—from controlled augmentation experiments to institutional discourse analysis.</p><a href="research.html">Explore the research →</a></section>
+<section class="about-strip"><h2>A little about me</h2><div><p>I’m an M.Sc. student and teaching assistant at Jashore University of Science and Technology. I research image mixing at the Visual Machine Intelligence Lab and language models with the Bangladesh Computational Social Science Lab.</p><p>Outside my own experiments, I lead labs in machine learning, data structures, and IoT.</p><a href="assets/Sabbir_Ahmed_Academic_CV.pdf">Full background in my CV ↗</a></div></section>
+<section class="contact-strip"><h2>Have a research idea in mind?</h2><a href="contact.html">Let’s connect ↗</a></section>
       <footer>
-        &copy; <span id="year"></span> Sabbir Ahmed. Built with plain HTML, CSS &amp; JS.
+        &copy; <span id="year"></span> Sabbir Ahmed. Machine learning · Computer vision · Language models.
       </footer>
     </main>
   </div>
 
+  <noscript><p>This site uses JavaScript to display the portfolio. Contact: sabbir.ahmed.cse19.just@gmail.com.</p></noscript>
   <script src="content.js"></script>
   <script src="script.js"></script>
 </body>

@@ -1,200 +1,219 @@
-/**
- * ============================================================
- *  PORTFOLIO CONTENT
- * ============================================================
- *  This file is the ONLY file you should need to touch to keep
- *  your site up to date. Everything below is plain data — the
- *  page (script.js) reads this and builds the HTML for you.
- *
- *  HOW TO ADD SOMETHING
- *    Copy an existing object inside the relevant array, paste
- *    it as a new entry, and edit the text. Order in the array
- *    = order on the page (newest/most important first).
- *
- *  HOW TO REMOVE SOMETHING
- *    Delete its object from the array (including the { } and
- *    the trailing comma of the entry before/after it).
- *
- *  HOW TO EDIT SOMETHING
- *    Just change the text inside the quotes.
- * ============================================================
- */
-
+// Edit this file to update your profile, research, papers, projects, and CV.
 const CONTENT = {
-
-  // ---- Identity -------------------------------------------------
-  profile: {
-    name: "Sabbir Ahmed",
-    title: "Machine Learning Researcher",
-    location: "Dhaka, Bangladesh",
-    email: "sabbir.ahmed.cse19.just@gmail.com",
-    // Path to your photo, e.g. "assets/images/profile.jpg". Leave "" to keep
-    // the initials avatar. See README "Adding your photo" for the how-to.
-    photo: "assets/dp.jpg",
-    tagline:
-      "I work across computer vision, LLM fine-tuning, and applied deep learning — currently juggling four research collaborations spanning Bangladesh and the US, mostly on a zero-compute budget.",
-    bio: [
-      "I'm a Machine Learning researcher with 2.5+ years of experience spanning computer vision, NLP/LLM fine-tuning, and applied deep learning. I like problems that force creative constraints — most of my work has run on free-tier or preemptible compute, which means fault tolerance and efficient pipelines matter as much as the modeling itself.",
-      "Right now I split my time across four research roles: benchmarking dropout-based regularization methods with a team at UT Dallas, leading a data-augmentation study at my home lab in Bangladesh, running a large-scale LLM fine-tuning pipeline with a lab at the University of Arkansas, and teaching machine learning to 250+ undergraduates.",
-      "Before all that, my undergraduate thesis took a zero-shot medical segmentation pipeline from a Dice score of 0.28 to 0.87 by repurposing the model's own mistakes as visual prompts — a result I'm still fond of."
+  "profile": {
+    "name": "Sabbir Ahmed",
+    "title": "Machine Learning Researcher",
+    "location": "Dhaka, Bangladesh",
+    "email": "sabbir.ahmed.cse19.just@gmail.com",
+    "photo": "assets/dp.jpg",
+    "tagline": "I work on computer vision, large vision-language models, and multimodal learning.",
+    "bio": [
+      "I’m a machine learning researcher and M.Sc. student at Jashore University of Science and Technology. My research interests span computer vision, large vision-language models, and multimodal learning.",
+      "I work with the Bangladesh Computational Social Science Lab on large-scale text classification and language-model fine-tuning, and with the Visual Machine Intelligence Lab at JUST on image mixing and generalization. Alongside research, I lead labs in machine learning, data structures, and IoT."
     ],
-    links: [
-      { label: "Email", url: "mailto:sabbir.ahmed.cse19.just@gmail.com", icon: "email" },
-      { label: "GitHub", url: "https://github.com/Sabbbir", icon: "github" },
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/sabbbir-ahmed1925/", icon: "linkedin" },
-      { label: "Kaggle", url: "https://www.kaggle.com/sabbbirr", icon: "kaggle" },
-      { label: "Hugging Face", url: "https://huggingface.co/sabbbbir", icon: "huggingface" }
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:sabbir.ahmed.cse19.just@gmail.com",
+        "icon": "email"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Sabbbir",
+        "icon": "github"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sabbbir-ahmed1925/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "Kaggle",
+        "url": "https://www.kaggle.com/sabbbirr",
+        "icon": "kaggle"
+      },
+      {
+        "label": "Hugging Face",
+        "url": "https://huggingface.co/sabbbbir",
+        "icon": "huggingface"
+      }
     ]
   },
-
-  // ---- Research experience ---------------------------------------
-  research: [
+  "research": [
     {
-      role: "Research Assistant",
-      org: "AI Security Research Lab, University of Texas at Dallas",
-      location: "Remote",
-      date: "Mar 2026 – Present",
-      points: [
-        "Collaborate with a cross-institutional team to design and benchmark novel dropout-based regularization methods for improving deep learning generalization.",
-        "Reproduce published regularization techniques against baseline architectures, iterating on a new approach every few weeks."
+      "role": "Research Assistant",
+      "org": "Bangladesh Computational Social Science Lab",
+      "location": "Remote",
+      "date": "Jul 2024 – Present",
+      "points": [
+        "PI: Dr. Nur Ahmed, Digital Fellow at MIT and Assistant Professor at the University of Arkansas.",
+        "Developed an LLM-based framework to study institutional DEI discourse across 500 U.S. universities, classifying 700,000 tweets within a 9-million-tweet corpus.",
+        "Fine-tuned and evaluated BERTweet and Qwen models (4B, 9B, 14B, 27B), including Qwen3.6-27B trained on 4,500 examples with generated reasoning traces.",
+        "Engineered distributed Qwen3.6-27B inference with adaptive batching and fault-tolerant worker coordination."
       ]
     },
     {
-      role: "Graduate Research Assistant",
-      org: "Visual Machine Intelligence Lab, Jashore University of Science and Technology",
-      location: "Jashore, Bangladesh",
-      date: "Jul 2025 – Present",
-      points: [
-        "Co-developed the technical methodology and visual documentation for SPADE-AI, a hyperspectral soil-reconstruction and crop-suitability proposal.",
-        "Leading an independent study on data augmentation (CutMix, MixUp, SaliencyMix), benchmarking a CutMix-augmented ResNet-18 on CIFAR-10/100 and scaling next to Vision Transformers."
-      ]
-    },
-    {
-      role: "Research Assistant",
-      org: "BCS2 Lab, University of Arkansas",
-      location: "Remote",
-      date: "Jul 2024 – Present",
-      points: [
-        "Designed a zero-budget, semi-supervised labeling pipeline for 9 million tweets from the top 500 US universities, orchestrating decentralized asynchronous Gemini API calls in place of manual annotation.",
-        "Fine-tuned BERTweet for large-scale DEI-trend classification, and distilled reasoning traces from Qwen-14B into a curated set used to QLoRA fine-tune Qwen models from 4B to 27B parameters.",
-        "Built a fault-tolerant fine-tuning framework — async orchestration, write-ahead checkpoint logging, OOM-aware batch scaling, graceful shutdown on preemption — to run reliably on free-tier, preemptible GPUs."
-      ]
-    },
-    {
-      role: "Research Assistant (Undergraduate) — B.Sc. Thesis",
-      org: "Guided Unsupervised Segmentation via Cross-Model Prompting",
-      location: "Jashore University of Science and Technology",
-      date: "Nov 2023 – Jun 2025",
-      points: [
-        "Engineered a zero-shot medical segmentation pipeline (OneFormer + SegGPT) for BraTS MRI scans, repurposing the model's own domain-shifted misclassifications as visual prompts to guide tumor identification.",
-        "Improved segmentation Dice score from 0.28 to 0.87 without any additional labeled training data."
+      "role": "Research Assistant",
+      "org": "Visual Machine Intelligence Lab, JUST",
+      "location": "Jashore, Bangladesh",
+      "date": "2023 – Present",
+      "points": [
+        "PI: Dr. A F M Shahab Uddin, Assistant Professor, JUST.",
+        "Benchmarked image mixing augmentation across 273 experiments on CIFAR/ImageNet and diverse architectures.",
+        "Designed CutMix, SaliencyMix, MixUp, and PuzzleMix variants to investigate intra-class and inter-class mixing.",
+        "Analyzed feature representations and generalization patterns to characterize the effects of synthetic image mixing."
       ]
     }
   ],
-
-  // ---- Projects ---------------------------------------------------
-  projects: [
+  "projects": [
     {
-      title: "Bengali License Plate Recognition System",
-      date: "Jan – May 2024",
-      tools: "YOLOv8, PyTorch, Django, OpenCV",
-      description:
-        "Built and deployed an end-to-end detection pipeline reaching 96.2% accuracy on a multi-format annotated dataset, with a LiDAR-triggered Raspberry Pi 4 deployment to minimize active compute time.",
-      link: "https://github.com/Sabbbir/image-segmentation"
+      "title": "Bengali License Plate Recognition System",
+      "date": "Jan – May 2024",
+      "tools": "YOLOv8, PyTorch, Django, OpenCV",
+      "description": "Built and deployed an end-to-end detection pipeline reaching 96.2% accuracy on a multi-format annotated dataset, with a LiDAR-triggered Raspberry Pi 4 deployment to minimize active compute time.",
+      "link": "https://github.com/Sabbbir/image-segmentation"
     },
     {
-      title: "Multi-Institutional Aquaculture Research Project",
-      date: "2023 – 2024",
-      tools: "ESP32, sensor arrays, real-time dashboards",
-      description:
-        "Engineered and deployed a 36-sensor ESP32 array monitoring six water-quality parameters for saltwater shrimp research, with a live dashboard and NVR video integration for remote diagnostics. Collaboration between JUST, Khulna University, and Bangladesh's Ministry of Fisheries and Livestock.",
-      link: ""
+      "title": "Multi-Institutional Aquaculture Research Project",
+      "date": "2023 – 2024",
+      "tools": "ESP32, sensor arrays, real-time dashboards",
+      "description": "Engineered and deployed a 36-sensor ESP32 array monitoring six water-quality parameters for saltwater shrimp research, with a live dashboard and NVR video integration for remote diagnostics. Collaboration between JUST, Khulna University, and Bangladesh's Ministry of Fisheries and Livestock.",
+      "link": ""
     },
     {
-      title: "NASA Space Apps Challenge 2023",
-      date: "Aug 2023",
-      tools: "HTML, CSS, Three.js, Python",
-      description:
-        "Led Team Entergalactic to build an interactive 3D Mars exploration app integrating nine NASA APIs (rover imagery, helicopter telemetry, weather). Advanced to the second round among top teams.",
-      link: "https://github.com/Sabbbir/nasa-space-apps"
+      "title": "NASA Space Apps Challenge 2023",
+      "date": "Aug 2023",
+      "tools": "HTML, CSS, Three.js, Python",
+      "description": "Led Team Entergalactic to build an interactive 3D Mars exploration app integrating nine NASA APIs (rover imagery, helicopter telemetry, weather). Advanced to the second round among top teams.",
+      "link": "https://github.com/Sabbbir/nasa-space-apps"
     },
     {
-      title: "AI Chatbot on an Open-Source LLM",
-      date: "May 2024",
-      tools: "Ollama (Llama 3-8B), Streamlit",
-      description:
-        "Built a document-grounded chatbot that answers questions from a source PDF, designed to work as an always-on assistant.",
-      link: "https://github.com/Sabbbir/ai-chatbot"
+      "title": "AI Chatbot on an Open-Source LLM",
+      "date": "May 2024",
+      "tools": "Ollama (Llama 3-8B), Streamlit",
+      "description": "Built a document-grounded chatbot that answers questions from a source PDF, designed to work as an always-on assistant.",
+      "link": "https://github.com/Sabbbir/ai-chatbot"
     }
   ],
-
-  // ---- Teaching & professional -------------------------------------
-  teaching: [
+  "teaching": [
     {
-      role: "Teaching Assistant",
-      org: "Dept. of Computer Science & Engineering, JUST",
-      date: "Oct 2024 – Present",
-      points: [
-        "Independently instruct 250+ students across Machine Learning, IoT, and Data Structures courses.",
-        "Built 15 auto-graded assignments, cutting grading time by roughly 60%."
+      "role": "Teaching Assistant",
+      "org": "Dept. of Computer Science & Engineering, JUST",
+      "date": "Oct 2024 – Present",
+      "points": [
+        "Led labs for 200+ students across two academic years in Machine Learning, Data Structures, and IoT, developing course materials, assignments, and assessments."
       ]
     },
     {
-      role: "Network Operations Intern",
-      org: "BdREN",
-      date: "Feb – Apr 2025",
-      points: [
+      "role": "Network Operations Intern",
+      "org": "BdREN",
+      "date": "Feb – Apr 2025",
+      "points": [
         "Monitored 195 networks using Wireshark and SolarWinds, simulated routing scenarios in Packet Tracer, and managed data-center support tickets."
       ]
     }
   ],
-
-  // ---- Education -----------------------------------------------------
-  education: [
+  "education": [
     {
-      degree: "M.Sc. Engineering in Computer Science and Engineering",
-      org: "Jashore University of Science and Technology",
-      date: "Jun 2025 – Present"
+      "degree": "M.Sc. in Computer Science and Engineering",
+      "org": "Jashore University of Science and Technology",
+      "date": "Expected Aug 2027",
+      "details": "CGPA: 3.69/4.00 (through first semester). Thesis: Robust Fine-Tuning and Alignment of Large Language Models."
     },
     {
-      degree: "B.Sc. in Computer Science and Engineering",
-      org: "Jashore University of Science and Technology",
-      date: "2020 – 2025"
+      "degree": "B.Sc. in Computer Science and Engineering",
+      "org": "Jashore University of Science and Technology",
+      "date": "2025",
+      "details": "CGPA: 3.20/4.00. Thesis: Guided Unsupervised Segmentation via Cross-Model Prompting."
     }
   ],
-
-  // ---- Awards & service ------------------------------------------------
-  awards: [
+  "awards": [
     {
-      title: "Erasmus+ MELBU Summer School",
-      org: "Leipzig, Germany",
-      date: "Aug 2022",
-      description: "Studied leadership and innovation management, and conducted German SME market research alongside peers from six countries."
+      "title": "Asian Development Bank Scholarship",
+      "org": "Graduate studies",
+      "date": "2025–2026",
+      "description": "Scholarship from the Asian Development Bank for graduate studies."
     },
     {
-      title: "National Innovation Challenge, Bangladesh — Top 40 Finalist",
-      org: "a2i (ICT Division), Cabinet Division & UNDP Bangladesh",
-      date: "Nov 2022",
-      description: "Selected from 1,000+ applicants and presented to a ministerial panel with mentorship from UNDP innovation advisors."
+      "title": "National Innovation Challenge — Finalist",
+      "org": "a2i and UNDP",
+      "date": "2022",
+      "description": "Presented solutions to a ministerial panel."
     },
     {
-      title: "Reviewer, IEEE COMPAS 2025",
-      org: "AI, Machine Learning & Soft Computing track",
-      date: "2025",
-      description: "Academic peer-review service."
+      "title": "Erasmus+ MELBU Summer School",
+      "org": "University of Leipzig, Germany",
+      "date": "Aug 2022",
+      "description": "Completed a 14-day summer school."
+    },
+    {
+      "title": "Reviewer",
+      "org": "IEEE COMPAS",
+      "date": "",
+      "description": "Academic peer-review service."
+    },
+    {
+      "title": "Grant Proposal Formulation",
+      "org": "SPADE-AI",
+      "date": "",
+      "description": "Co-drafted the technical methodology for a $215K ADB proposal, translating research objectives into a hyperspectral imaging pipeline."
     }
   ],
-
-  // ---- Skills ------------------------------------------------------------
-  skills: {
-    "Computer Vision": ["PyTorch", "OpenCV", "YOLO", "OneFormer", "SegGPT", "Vision Transformers", "Zero-shot detection"],
-    "NLP & LLMs": ["Hugging Face Transformers", "LoRA / QLoRA fine-tuning", "Weak supervision", "LLM benchmarking", "Prompt engineering"],
-    "ML Infrastructure": ["Distributed training", "Fault-tolerant pipelines", "Edge deployment (Raspberry Pi, ESP32)", "Data augmentation"],
-    "Languages & Tools": ["Python", "C/C++", "Java", "NumPy", "Pandas", "Git", "Docker", "Linux"]
+  "skills": {
+    "Programming Languages": [
+      "Python",
+      "R",
+      "C/C++",
+      "Java"
+    ],
+    "ML Frameworks": [
+      "PyTorch",
+      "OpenCV",
+      "YOLO",
+      "Hugging Face",
+      "Transformers",
+      "NLTK"
+    ],
+    "Databases": [
+      "Firebase",
+      "MySQL"
+    ],
+    "Tools": [
+      "Git",
+      "Linux / Bash",
+      "Docker",
+      "Weights & Biases",
+      "LaTeX"
+    ]
   },
-
-  languages: [
-    { name: "English", level: "Proficient — IELTS 7.0" },
-    { name: "Bengali", level: "Native" }
+  "languages": [
+    {
+      "name": "English",
+      "level": "Proficient — IELTS 7.0"
+    },
+    {
+      "name": "Bengali",
+      "level": "Native"
+    }
+  ],
+  "papers": [
+    {
+      "title": "Institutional DEI Discourse in US Higher Education Amid Political Backlash",
+      "authors": "Nur Ahmed, Sabbir Ahmed",
+      "status": "Working paper"
+    },
+    {
+      "title": "Revisiting Image Mixing Augmentations: Inter- and Intra-Class Dynamics",
+      "authors": "Sabbir Ahmed, Dr. A F M Shahab Uddin",
+      "status": "Working paper"
+    }
   ]
 };
+
+// Portfolio case studies: edit these alongside your project details.
+CONTENT.work = [
+ {id:'license-plates',category:'COMPUTER VISION / EDGE DEPLOYMENT',title:'Reading Bengali license plates',summary:'An end-to-end recognition system, from an annotated dataset to a Raspberry Pi deployment.',problem:'Recognize Bengali license plates and run the detection pipeline on edge hardware.',contribution:'Curated a dataset in YOLO/COCO formats, built a YOLOv8 detection pipeline, and deployed it on Raspberry Pi 4 with LiDAR-triggered capture.',outcome:'96.2% accuracy on the project dataset, with triggered capture to reduce active compute time.',metric:'96.2%',metricLabel:'accuracy on the project dataset',tools:'YOLOv8 · PyTorch · Django · OpenCV',art:'plate'},
+ {id:'aquaculture',category:'SENSING / APPLIED SYSTEMS',title:'A window into aquaculture',summary:'A connected monitoring system for saltwater-shrimp research, bringing sensors and remote diagnostics together.',problem:'Monitor water conditions and give researchers remote visibility into an aquaculture setup.',contribution:'Engineered a 36-sensor ESP32 array and integrated real-time dashboards with NVR video systems.',outcome:'Monitoring across six water parameters for a collaboration involving JUST, Khulna University, and the Ministry of Fisheries and Livestock.',metric:'36',metricLabel:'sensors · 6 water parameters',tools:'ESP32 · Sensor arrays · Real-time dashboards',art:'water'},
+ {id:'mars',category:'INTERACTIVE EXPERIENCE / DATA',title:'Exploring Mars through data',summary:'An interactive 3D Mars application built by Team Entergalactic for NASA Space Apps.',problem:'Bring Mars imagery and mission data into an interactive exploration experience.',contribution:'Led the team and integrated NASA datasets for rover imagery, helicopter telemetry, and Mars weather.',outcome:'A 3D application integrating nine NASA APIs.',metric:'9',metricLabel:'NASA APIs integrated',tools:'Three.js · HTML · CSS · Python',link:'https://github.com/Sabbbir/nasa-space-apps',art:'mars'},
+ {id:'chatbot',category:'LANGUAGE MODELS / APPLICATION',title:'A chatbot grounded in documents',summary:'A lightweight interface for asking questions about a source PDF using an open-source language model.',problem:'Make the contents of a source PDF accessible through a conversational interface.',contribution:'Built a document-grounded chatbot using Ollama with Llama 3-8B and a Streamlit interface.',outcome:'A working application that answers questions from a source PDF.',metric:'Llama 3',metricLabel:'8B · document-grounded assistant',tools:'Ollama · Streamlit',link:'https://github.com/Sabbbir/ai-chatbot',art:'chat'}
+];

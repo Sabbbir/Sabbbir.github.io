@@ -49,9 +49,7 @@ function renderSidebar() {
   if (!root) return;
   const { profile } = CONTENT;
 
-  document.title = `${profile.name} — ${profile.title}`;
-  const metaDesc = document.getElementById('meta-description');
-  if (metaDesc) metaDesc.setAttribute('content', profile.tagline);
+  // Keep each page’s descriptive title and metadata.
 
   const initials = profile.name.split(' ').map(w => w[0]).slice(0, 2).join('');
   const avatarHtml = profile.photo
@@ -71,21 +69,30 @@ function renderSidebar() {
   root.innerHTML = `
     ${avatarHtml}
     <div class="sidebar-id">
-      <h1>${profile.name}</h1>
+      <h2>${profile.name}</h2>
       <p class="title">${profile.title}</p>
       <p class="location">${profile.location}</p>
     </div>
-    <nav class="sidebar-links">${linksHtml}</nav>
-    <nav class="sidebar-nav">${navHtml}</nav>
+    <nav class="sidebar-links" aria-label="Profile links">${linksHtml}</nav>
+    
   `;
 }
 
+function initProfilePhoto() {
+  const photo = document.querySelector('.avatar-img');
+  if (!photo) return;
+  photo.addEventListener('error', () => {
+    const fallback = el('div', 'avatar avatar-fallback', 'SA');
+    fallback.setAttribute('aria-label', CONTENT.profile.name);
+    photo.replaceWith(fallback);
+  }, {once:true});
+  if (photo.complete && !photo.naturalWidth) photo.dispatchEvent(new Event('error'));
+}
 function renderHome() {
   const wrap = document.getElementById('home-content');
   if (!wrap) return;
   const { profile } = CONTENT;
-  wrap.innerHTML = `<p class="hero-tagline">${profile.tagline}</p>` +
-    profile.bio.map(p => `<p>${p}</p>`).join('');
+  wrap.innerHTML = `<p class="hero-tagline">${profile.tagline}</p>` + profile.bio.map(p => `<p>${p}</p>`).join('');
 }
 
 function renderResearch() {
@@ -157,6 +164,7 @@ function renderEducation() {
         </div>
         <span class="entry-date">${item.date}</span>
       </div>
+      ${item.details ? `<p>${item.details}</p>` : ""}
     `;
     wrap.appendChild(row);
   });
@@ -202,6 +210,10 @@ function renderAll() {
   renderSidebar();
   renderHome();
   renderResearch();
+  const papers = document.getElementById('papers-list');
+  if (papers) CONTENT.papers.forEach(p => {
+    papers.appendChild(el('article', 'entry', `<h3>${p.title}</h3><p>${p.authors}</p><span class="pill">${p.status}</span>`));
+  });
   renderProjects();
   renderTeaching();
   renderEducation();
@@ -215,11 +227,13 @@ function renderAll() {
 function initTheme() {
   const toggle = document.getElementById('theme-toggle');
   if (!toggle) return;
+  toggle.setAttribute('aria-pressed', String(document.documentElement.getAttribute('data-theme') === 'dark'));
   toggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+    try { localStorage.setItem('theme', next); } catch (_) {}
+    toggle.setAttribute('aria-pressed', String(next === 'dark'));
   });
 }
 
@@ -265,6 +279,7 @@ function initContactForm() {
 
   form.addEventListener('submit', e => {
     e.preventDefault();
+    document.getElementById('form-status').textContent = '';
     button.disabled = true;
     button.textContent = 'Sending…';
 
@@ -285,7 +300,7 @@ function initContactForm() {
         }
       })
       .catch(err => {
-        alert(err.message);
+        document.getElementById('form-status').textContent = 'Your message could not be sent. Please try again or use the email link above.';
         button.disabled = false;
         button.textContent = 'Send Message';
       });
@@ -294,9 +309,29 @@ function initContactForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderAll();
+  initProfilePhoto();
+  document.querySelectorAll('.masthead nav a').forEach(link => {
+    if (link.getAttribute('href') === currentPage()) link.setAttribute('aria-current', 'page');
+  });
   initTheme();
   initNav();
   initContactForm();
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
+
+function workVisual(item) {
+  const drawings = {
+    plate:'<rect x="62" y="49" width="236" height="110" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M50 76V38h45M265 38h45v38M50 132v39h45M265 171h45v-39" fill="none" stroke="currentColor" stroke-width="3"/><text x="180" y="98" text-anchor="middle" font-size="19" fill="currentColor">ঢাকা মেট্রো</text><text x="180" y="133" text-anchor="middle" font-size="25" fill="currentColor">১২–৩৪৫৬</text>',
+    water:'<path d="M0 135Q45 105 90 135T180 135T270 135T360 135M0 160Q45 130 90 160T180 160T270 160T360 160" fill="none" stroke="currentColor" opacity=".3"/><path d="M60 94L135 56L210 101L295 63M60 94L145 132L210 101L285 145" fill="none" stroke="currentColor"/>'+[ [60,94],[135,56],[210,101],[295,63],[145,132],[285,145] ].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="7" fill="currentColor"/>`).join(''),
+    mars:'<ellipse cx="180" cy="108" rx="144" ry="45" fill="none" stroke="currentColor" opacity=".35" transform="rotate(-25 180 108)"/><circle cx="180" cy="108" r="66" fill="currentColor" opacity=".7"/><path d="M140 73q65 8 88 45M125 106q70-18 112 26M155 155q20-30 65-26" fill="none" stroke="var(--bg)" stroke-width="9" opacity=".35"/><circle cx="298" cy="59" r="5" fill="currentColor"/>',
+    chat:'<rect x="63" y="33" width="114" height="140" rx="5" fill="none" stroke="currentColor"/><path d="M83 61h70M83 80h70M83 99h48" stroke="currentColor" opacity=".5"/><rect x="157" y="91" width="145" height="76" rx="12" fill="var(--bg)" stroke="currentColor"/><path d="M179 116h97M179 135h65" stroke="currentColor"/>'
+  };
+  return `<div class="work-visual visual-${item.art}"><svg viewBox="0 0 360 210" role="img" aria-label="${item.title}: conceptual illustration">${drawings[item.art]}</svg><span>CONCEPT ILLUSTRATION</span></div>`;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const featured = document.getElementById('featured-work');
+  if (featured) featured.innerHTML = CONTENT.work.slice(0,3).map(item => `<article class="featured-project">${workVisual(item)}<div class="work-copy"><p class="eyebrow">${item.category}</p><h3><a href="projects.html#${item.id}">${item.title}</a></h3><p>${item.summary}</p><p class="work-result"><strong>${item.metric}</strong> ${item.metricLabel}</p><a class="story-link" href="projects.html#${item.id}">View project →</a></div></article>`).join('');
+  const stories = document.getElementById('work-stories');
+  if (stories) stories.innerHTML = CONTENT.work.map(item => `<article class="case-study" id="${item.id}"><div class="case-heading">${workVisual(item)}<div><p class="eyebrow">${item.category}</p><h2>${item.title}</h2><p>${item.summary}</p><p class="tool-line">${item.tools}</p></div></div><div class="case-details"><div><h3>The problem</h3><p>${item.problem}</p></div><div><h3>What I built</h3><p>${item.contribution}</p></div><div><h3>The result</h3><p>${item.outcome}</p></div></div>${item.link?`<a href="${item.link}" target="_blank" rel="noopener noreferrer">Explore the code ↗</a>`:''}</article>`).join('');
 });
