@@ -1,28 +1,42 @@
-# Sabbir Ahmed — academic portfolio
+# Sabbir Ahmed — research portfolio
 
-A work-first plain HTML/CSS/JavaScript portfolio redesign for your existing GitHub Pages site. No installation or build step is needed.
+## Install in your existing repository
 
-## Use
+Extract this archive. Copy its HTML files, content.js, script.js, and styles.css into:
+/home/druglord/Documents/Code/Sabbbir.github.io/
 
-1. Extract this archive and open index.html to review it.
-2. Merge these files into your sabbbir.github.io repository root, replacing matching files. Preserve unrelated repository files.
-3. Review the featured work and case studies.
-4. Commit and push through your normal GitHub Pages workflow. This package has not been deployed to your live site.
+Merge the included assets folder into your existing assets folder. Do not delete your existing assets. Keep dp.jpg, apple-touch-icon.png, favicon-16x16.png, and favicon-32x32.png.
 
-The PDF CV is included at assets/Sabbir_Ahmed_Academic_CV.pdf. The main navigation and background links point to it.
+The package supplies assets/Sabbir_Ahmed_Academic_CV.pdf (the PDF you uploaded) and assets/favicon.svg. The site uses your existing assets/dp.jpg for the portrait; initials appear when it is unavailable.
 
-## Update
+## CV link fix
 
-Edit content.js for profile, research, working papers, projects, education, awards, and skills. Edit CONTENT.work in content.js for the featured projects and their problem/contribution/result stories. Edit index.html for the short introduction and about text. styles.css controls appearance; script.js renders the data and handles theme and form behavior.
+All CV links expect exactly:
+assets/Sabbir_Ahmed_Academic_CV.pdf
 
-The latest supplied academic CV was used for research, education, teaching, scholarship, and working-paper details. The NASA and chatbot repository links were retained from the supplied source and have not been verified externally.
+Your listed filename, Sabbir_Ahmed_Academic_CV, does not have the .pdf extension. Either copy the PDF supplied in this archive into assets/ or, if your existing extensionless file is the correct PDF, rename it locally:
 
-The existing Formspree endpoint is preserved. No test message was submitted; delivery must be checked with your own account. Direct email remains available.
+```bash
+cd /home/druglord/Documents/Code/Sabbbir.github.io
+mv assets/Sabbir_Ahmed_Academic_CV assets/Sabbir_Ahmed_Academic_CV.pdf
+```
 
-## Checks
+Use one method. Do not run the rename over an existing newer PDF. Filenames are case-sensitive on GitHub Pages. Commit the PDF together with the updated pages using your normal deployment workflow. Open the CV link after deployment to check that the PDF is included in the published files.
 
-JavaScript syntax checked; homepage visually inspected in browser; research paper rendering, updated education, and dark-mode switching checked. Responsive CSS is included, but a separate mobile-device check was not performed. Profile photo was not provided.
+## Structure
 
-## Portfolio structure
+About: short personal introduction, PhD interest, profile photo, selected research, working papers, then a small link to applied projects.
+Research: image mixing/generalization, language-model research, thesis work, and working papers clearly identified as works in progress.
+Projects: four project stories with conceptual illustrations, contributions, and outcomes.
+CV: direct PDF link. cv.html is retained for older links.
+Contact: direct email and the existing Formspree form.
 
-Home features three projects with original conceptual SVG illustrations, outcomes, and links to full project stories. Work presents four case studies. Research explains two ongoing investigations and lists the working papers. The main navigation links to the PDF CV; cv.html remains available for older links. Illustrations are labeled as concepts, not actual screenshots or research figures.
+## Updating
+
+Edit index.html for the introduction, PhD statement, and research highlights. Edit research.html for research narratives. Edit content.js for working papers, project stories (CONTENT.work), and CV data. Replace assets/Sabbir_Ahmed_Academic_CV.pdf to update the downloadable CV.
+
+The source contains no application-cycle or geographic restrictions on your PhD search. None were provided.
+
+## Verification
+
+JavaScript syntax and local page links checked. The bundled CV is a valid two-page PDF. Browser inspection covers desktop layout and project navigation; mobile-device verification remains outstanding. The profile photo and existing PNG icons were not attached and are not included in this archive. Keep them when merging. No contact-form message was submitted, and external repository links were not verified. This package has not been deployed to your live site.
